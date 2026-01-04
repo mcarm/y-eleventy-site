@@ -1,0 +1,182 @@
+---
+layout: base.njk
+bodyClass: home
+---
+
+<section class="hero hero-slideshow">
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background-image: url('/img/hero-1.png')"></div>
+    <div class="hero-slide" style="background-image: url('/img/hero-2.png')"></div>
+    <div class="hero-slide" style="background-image: url('/img/hero-3.png')"></div>
+    <div class="hero-slide" style="background-image: url('/img/hero-4.png')"></div>
+    <div class="hero-slide" style="background-image: url('/img/hero-5.png')"></div>
+    <div class="hero-slide" style="background-image: url('/img/hero-6.png')"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title animate-fade-up">Malcolm Armstrong</h1>
+    <p class="hero-tagline animate-fade-up delay-1">Technologist & Creator</p>
+    <p class="hero-subtitle animate-fade-up delay-2">Laboratory</p>
+    <a href="#about" class="btn hero-cta animate-fade-up delay-3">Learn More</a>
+  </div>
+  <div class="hero-nav">
+    <button class="hero-nav-btn active" data-slide="0" aria-label="Slide 1"></button>
+    <button class="hero-nav-btn" data-slide="1" aria-label="Slide 2"></button>
+    <button class="hero-nav-btn" data-slide="2" aria-label="Slide 3"></button>
+    <button class="hero-nav-btn" data-slide="3" aria-label="Slide 4"></button>
+    <button class="hero-nav-btn" data-slide="4" aria-label="Slide 5"></button>
+    <button class="hero-nav-btn" data-slide="5" aria-label="Slide 6"></button>
+  </div>
+  <div class="scroll-indicator animate-bounce">
+    <span class="scroll-arrow" aria-hidden="true"></span>
+    <span class="visually-hidden">Scroll down</span>
+  </div>
+</section>
+
+{# WORK SECTION - Uncomment to enable
+<section id="work" class="section work">
+  <div class="container">
+    <h2>Selected Work</h2>
+    <div class="project-grid">
+      <article class="project-card">
+        <div class="project-image">
+          <div class="project-placeholder" aria-hidden="true">01</div>
+        </div>
+        <div class="project-overlay">
+          <h3>Nomad Coffee</h3>
+          <p>Brand identity and packaging design for a specialty coffee roaster expanding to new markets.</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-image">
+          <div class="project-placeholder" aria-hidden="true">02</div>
+        </div>
+        <div class="project-overlay">
+          <h3>Horizon App</h3>
+          <p>Mobile UX overhaul for a travel startup, improving booking completion rates by 40%.</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-image">
+          <div class="project-placeholder" aria-hidden="true">03</div>
+        </div>
+        <div class="project-overlay">
+          <h3>Design System</h3>
+          <p>A component library and documentation site built for developers who value clarity.</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+#}
+
+<section id="gallery" class="section gallery-teaser">
+  <div class="container">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <a href="/img/gallery/DSCF3710.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/DSCF3710.png" alt="Gallery image 1" loading="lazy">
+      </a>
+      <a href="/img/gallery/IMG_20180321_194221.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/IMG_20180321_194221.png" alt="Gallery image 2" loading="lazy">
+      </a>
+      <a href="/img/gallery/IMG_2193.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/IMG_2193.png" alt="Gallery image 3" loading="lazy">
+      </a>
+      <a href="/img/gallery/IMG_8192.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/IMG_8192.png" alt="Gallery image 4" loading="lazy">
+      </a>
+      <a href="/img/gallery/IMG_8242.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/IMG_8242.png" alt="Gallery image 5" loading="lazy">
+      </a>
+      <a href="/img/gallery/IMG_8454.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/IMG_8454.png" alt="Gallery image 6" loading="lazy">
+      </a>
+      <a href="/img/gallery/Marmstrong_20180620_152750.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/Marmstrong_20180620_152750.png" alt="Gallery image 7" loading="lazy">
+      </a>
+      <a href="/img/gallery/PaintingMet-meRubensCIMG0033.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/PaintingMet-meRubensCIMG0033.png" alt="Gallery image 8" loading="lazy">
+      </a>
+      <a href="/img/gallery/granacifinal930.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/granacifinal930.png" alt="Gallery image 9" loading="lazy">
+      </a>
+      <a href="/img/gallery/headstudy-dancer.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/headstudy-dancer.png" alt="Gallery image 10" loading="lazy">
+      </a>
+    </div>
+    <a href="/gallery/" class="btn btn-secondary">View Full Gallery</a>
+  </div>
+</section>
+
+<section id="about" class="section about">
+  <div class="container">
+    <h2>About</h2>
+    <div class="about-content">
+     <p>Some years ago I had a bluehost website up, but the expense and time made me abandon it, as a thought experiment I threw this up on GIT using eleventy and converted some of the old content vibe coding with Windsurf. Times sure have changed!</p>
+      <p>I am technologist and creator in digital and traditional mediums. This site is a laboratory for my experiments</p>
+    </div>
+    <a href="#" class="back-to-top">&uarr; Back to Top</a>
+  </div>
+</section>
+
+<section id="journal" class="section journal-teaser">
+  <div class="container">
+    <h2>Journal</h2>
+    <ul class="blog-list">
+      {%- for post in collections.journal | head(3) %}
+      <li class="blog-entry">
+        <a href="{{ post.url }}" class="blog-title">{{ post.data.title }}</a>
+        <div class="blog-meta">
+          <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+          {%- if post.data.postTags %}
+          <span class="blog-tags">
+            {%- for postTag in post.data.postTags | head(3) %}
+            <a href="/journal/tag/{{ postTag | slugify }}/" class="tag">{{ postTag }}</a>
+            {%- endfor %}
+          </span>
+          {%- endif %}
+        </div>
+        <p>{{ post.data.excerpt }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+    <a href="/journal/" class="btn btn-secondary">View All Posts</a>
+  </div>
+</section>
+
+{# CONTACT SECTION - Uncomment to enable
+<section id="contact" class="section contact">
+  <div class="container">
+    <h2>Get in Touch</h2>
+    <p>Have a project in mind or just want to say hello? I'd love to hear from you.</p>
+    
+    <div class="contact-info">
+      <p><strong>Email:</strong> <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      <p class="social-links">
+        <a href="{{ site.github }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="{{ site.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </p>
+    </div>
+
+    <form class="contact-form" action="mailto:{{ site.email }}" method="POST" enctype="text/plain">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </div>
+</section>
+#}

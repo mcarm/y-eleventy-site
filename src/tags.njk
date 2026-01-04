@@ -1,0 +1,53 @@
+---
+pagination:
+  data: collections.postTags
+  size: 1
+  alias: tag
+permalink: /journal/tag/{{ tag | slugify }}/
+layout: base.njk
+---
+
+<section class="section journal-page">
+  <div class="container">
+    <h1>Posts tagged "{{ tag }}"</h1>
+    
+    <div class="blog-layout">
+      <aside class="blog-sidebar">
+        <h3>Topics</h3>
+        <ul class="tag-list">
+          <li><a href="/journal/" class="tag-link">All Posts</a></li>
+          {%- for postTag in collections.postTags %}
+          <li><a href="/journal/tag/{{ postTag | slugify }}/" class="tag-link{% if postTag == tag %} active{% endif %}">{{ postTag }}</a></li>
+          {%- endfor %}
+        </ul>
+      </aside>
+      
+      <div class="blog-content">
+        <ul class="blog-list">
+          {%- for post in collections.journal %}
+          {%- if post.data.postTags and tag in post.data.postTags %}
+          <li class="blog-entry">
+            <article>
+              <a href="{{ post.url }}" class="blog-title">{{ post.data.title }}</a>
+              <div class="blog-meta">
+                <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+                {%- if post.data.postTags %}
+                <span class="blog-tags">
+                  {%- for postTag in post.data.postTags %}
+                  <a href="/journal/tag/{{ postTag | slugify }}/" class="tag">{{ postTag }}</a>
+                  {%- endfor %}
+                </span>
+                {%- endif %}
+              </div>
+              <p>{{ post.data.excerpt }}</p>
+            </article>
+          </li>
+          {%- endif %}
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+    
+    <a href="/journal/" class="back-link">&larr; Back to Journal</a>
+  </div>
+</section>

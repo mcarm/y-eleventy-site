@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Designer and developer crafting thoughtful digital experiences.">
+  <title>Malcolm Armstrong — Designer & Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="home">
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+  <nav class="nav" aria-label="Main navigation">
+    <a href="/" class="nav-logo">Malcolm Armstrong</a>
+    <button 
+      class="nav-toggle" 
+      aria-expanded="false" 
+      aria-controls="nav-menu"
+      aria-label="Toggle navigation menu"
+    >
+      <span class="nav-toggle-icon"></span>
+    </button>
+    <ul id="nav-menu" class="nav-menu">
+      
+      <li><a href="/gallery/">Gallery</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+
+  <main id="main">
+    
+<section class="hero hero-slideshow">
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background-image: url('/img/hero-1.png')"></div>
+    <div class="hero-slide" style="background-image: url('/img/hero-2.png')"></div>
+    <div class="hero-slide" style="background-image: url('/img/hero-3.png')"></div>
+    <div class="hero-slide" style="background-image: url('/img/hero-4.png')"></div>
+    <div class="hero-slide" style="background-image: url('/img/hero-5.png')"></div>
+    <div class="hero-slide" style="background-image: url('/img/hero-6.png')"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title animate-fade-up">Malcolm Armstrong</h1>
+    <p class="hero-tagline animate-fade-up delay-1">Technologist & Creator</p>
+    <p class="hero-subtitle animate-fade-up delay-2">Laboratory</p>
+    <a href="#about" class="btn hero-cta animate-fade-up delay-3">Learn More</a>
+  </div>
+  <div class="hero-nav">
+    <button class="hero-nav-btn active" data-slide="0" aria-label="Slide 1"></button>
+    <button class="hero-nav-btn" data-slide="1" aria-label="Slide 2"></button>
+    <button class="hero-nav-btn" data-slide="2" aria-label="Slide 3"></button>
+    <button class="hero-nav-btn" data-slide="3" aria-label="Slide 4"></button>
+    <button class="hero-nav-btn" data-slide="4" aria-label="Slide 5"></button>
+    <button class="hero-nav-btn" data-slide="5" aria-label="Slide 6"></button>
+  </div>
+  <div class="scroll-indicator animate-bounce">
+    <span class="scroll-arrow" aria-hidden="true"></span>
+    <span class="visually-hidden">Scroll down</span>
+  </div>
+</section>
+
+
+
+<section id="gallery" class="section gallery-teaser">
+  <div class="container">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <a href="/img/gallery/DSCF3710.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/DSCF3710.png" alt="Gallery image 1" loading="lazy">
+      </a>
+      <a href="/img/gallery/IMG_20180321_194221.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/IMG_20180321_194221.png" alt="Gallery image 2" loading="lazy">
+      </a>
+      <a href="/img/gallery/IMG_2193.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/IMG_2193.png" alt="Gallery image 3" loading="lazy">
+      </a>
+      <a href="/img/gallery/IMG_8192.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/IMG_8192.png" alt="Gallery image 4" loading="lazy">
+      </a>
+      <a href="/img/gallery/IMG_8242.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/IMG_8242.png" alt="Gallery image 5" loading="lazy">
+      </a>
+      <a href="/img/gallery/IMG_8454.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/IMG_8454.png" alt="Gallery image 6" loading="lazy">
+      </a>
+      <a href="/img/gallery/Marmstrong_20180620_152750.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/Marmstrong_20180620_152750.png" alt="Gallery image 7" loading="lazy">
+      </a>
+      <a href="/img/gallery/PaintingMet-meRubensCIMG0033.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/PaintingMet-meRubensCIMG0033.png" alt="Gallery image 8" loading="lazy">
+      </a>
+      <a href="/img/gallery/granacifinal930.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/granacifinal930.png" alt="Gallery image 9" loading="lazy">
+      </a>
+      <a href="/img/gallery/headstudy-dancer.png" class="gallery-item" data-lightbox="gallery">
+        <img src="/img/gallery/headstudy-dancer.png" alt="Gallery image 10" loading="lazy">
+      </a>
+    </div>
+    <a href="/gallery/" class="btn btn-secondary">View Full Gallery</a>
+  </div>
+</section>
+
+<section id="about" class="section about">
+  <div class="container">
+    <h2>About</h2>
+    <div class="about-content">
+     <p>Some years ago I had a bluehost website up, but the expense and time made me abandon it, as a thought experiment I threw this up on GIT using eleventy and converted some of the old content vibe coding with Windsurf. Times sure have changed!</p>
+      <p>I am technologist and creator in digital and traditional mediums. This site is a laboratory for my experiments</p>
+    </div>
+    <a href="#" class="back-to-top">&uarr; Back to Top</a>
+  </div>
+</section>
+
+<section id="journal" class="section journal-teaser">
+  <div class="container">
+    <h2>Journal</h2>
+    <ul class="blog-list">
+      <li class="blog-entry">
+        <a href="/journal/2026-01-04-the-favorite-pen-excuse/" class="blog-title">I lost my favorite pen and can&#39;t write without it!</a>
+        <div class="blog-meta">
+          <time datetime="2026-01-04">January 3, 2026</time>
+          <span class="blog-tags">
+            <a href="/journal/tag/productivity/" class="tag">productivity</a>
+            <a href="/journal/tag/creativity/" class="tag">creativity</a>
+          </span>
+        </div>
+        <p>Why waiting for perfect tools is just another form of procrastination.</p>
+      </li>
+      <li class="blog-entry">
+        <a href="/journal/2026-01-04-drawing-from-memory/" class="blog-title">Drawing from Memory</a>
+        <div class="blog-meta">
+          <time datetime="2026-01-04">January 3, 2026</time>
+          <span class="blog-tags">
+            <a href="/journal/tag/creativity/" class="tag">creativity</a>
+            <a href="/journal/tag/art/" class="tag">art</a>
+            <a href="/journal/tag/practice/" class="tag">practice</a>
+          </span>
+        </div>
+        <p>The lost art of memory drawing and why it matters for artists today.</p>
+      </li>
+      <li class="blog-entry">
+        <a href="/journal/2026-01-04-creative-productivity-theodore-roosevelt/" class="blog-title">Creative Productivity - Lessons From Theodore Roosevelt</a>
+        <div class="blog-meta">
+          <time datetime="2026-01-04">January 3, 2026</time>
+          <span class="blog-tags">
+            <a href="/journal/tag/productivity/" class="tag">productivity</a>
+            <a href="/journal/tag/creativity/" class="tag">creativity</a>
+            <a href="/journal/tag/history/" class="tag">history</a>
+          </span>
+        </div>
+        <p>How one of history&#39;s most accomplished figures found time to write thirty books while leading an extraordinary life.</p>
+      </li>
+    </ul>
+    <a href="/journal/" class="btn btn-secondary">View All Posts</a>
+  </div>
+</section>
+
+
+
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 Malcolm Armstrong. All rights reserved.</p>
+    <a href="#" class="back-to-top">Back to top</a>
+  </div>
+</footer>
+
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+    <button class="lightbox-prev" aria-label="Previous image">&lsaquo;</button>
+    <button class="lightbox-next" aria-label="Next image">&rsaquo;</button>
+    <div class="lightbox-content">
+      <img src="" alt="" class="lightbox-image">
+    </div>
+  </div>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>

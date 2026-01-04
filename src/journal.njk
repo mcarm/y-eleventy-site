@@ -1,0 +1,49 @@
+---
+layout: base.njk
+title: Journal
+description: Thoughts on design, development, and the creative process.
+---
+
+<section class="section journal-page">
+  <div class="container">
+    <h1>Journal</h1>
+    <p class="journal-intro">Thoughts on design, development, and the creative process.</p>
+    
+    <div class="blog-layout">
+      <aside class="blog-sidebar">
+        <h3>Topics</h3>
+        <ul class="tag-list">
+          <li><a href="/journal/" class="tag-link active">All Posts</a></li>
+          {%- for postTag in collections.postTags %}
+          <li><a href="/journal/tag/{{ postTag | slugify }}/" class="tag-link">{{ postTag }}</a></li>
+          {%- endfor %}
+        </ul>
+      </aside>
+      
+      <div class="blog-content">
+        <ul class="blog-list">
+          {%- for post in collections.journal %}
+          <li class="blog-entry">
+            <article>
+              <a href="{{ post.url }}" class="blog-title">{{ post.data.title }}</a>
+              <div class="blog-meta">
+                <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+                {%- if post.data.postTags %}
+                <span class="blog-tags">
+                  {%- for postTag in post.data.postTags %}
+                  <a href="/journal/tag/{{ postTag | slugify }}/" class="tag">{{ postTag }}</a>
+                  {%- endfor %}
+                </span>
+                {%- endif %}
+              </div>
+              <p>{{ post.data.excerpt }}</p>
+            </article>
+          </li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+    
+    <a href="/" class="back-link">&larr; Back to Home</a>
+  </div>
+</section>
