@@ -1,7 +1,7 @@
 ---
 title: The Importance of Memorization and Poetry
 date: 2026-01-09
-excerpt: repost of an post from the archives.
+excerpt: repost  from the archives.
 ---
 I’ve written before about the lost art of memorization—particularly of poetry—and a theory that it once provided artists with a rich wellspring of inspiration. For example, Leonardo, Michelangelo, and probably most Florentine artists could quote Dante at length.
 
