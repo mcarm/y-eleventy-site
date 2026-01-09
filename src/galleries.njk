@@ -1,0 +1,38 @@
+---
+layout: base.njk
+title: Galleries
+description: Browse collections of artwork and photography.
+permalink: /galleries/
+---
+
+<section class="section gallery-page">
+  <div class="container">
+    <h1>Galleries</h1>
+    <p class="gallery-intro">Browse collections of artwork and photography.</p>
+    
+    <div class="galleries-list">
+      {% for item in collections.gallery | sort(attribute='data.order') %}
+      <a href="{{ item.url }}" class="gallery-card">
+        {% if item.data.coverImage %}
+        <div class="gallery-card-image">
+          <img src="{{ item.data.coverImage }}" alt="{{ item.data.title }}" loading="lazy">
+        </div>
+        {% elif item.data.images and item.data.images.length %}
+        <div class="gallery-card-image">
+          <img src="{{ item.data.images[0].src }}" alt="{{ item.data.title }}" loading="lazy">
+        </div>
+        {% endif %}
+        <div class="gallery-card-content">
+          <h2>{{ item.data.title }}</h2>
+          {% if item.data.description %}
+          <p>{{ item.data.description }}</p>
+          {% endif %}
+          <span class="gallery-card-count">{{ item.data.images | length }} images</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    
+    <a href="/" class="back-link">&larr; Back to Home</a>
+  </div>
+</section>

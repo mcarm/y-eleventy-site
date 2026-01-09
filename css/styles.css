@@ -252,14 +252,25 @@ p {
 .hero-slide {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
 
 .hero-slide.active {
   opacity: 1;
+}
+
+.hero-slide picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .hero-overlay {
@@ -1228,5 +1239,99 @@ p {
   
   .post-content {
     font-size: 1.2rem;
+  }
+}
+
+/* Galleries List Styles */
+.galleries-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.gallery-card {
+  display: block;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+  text-decoration: none;
+}
+
+.gallery-card:hover,
+.gallery-card:focus {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  text-decoration: none;
+}
+
+.gallery-card-image {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.gallery-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-card:hover .gallery-card-image img {
+  transform: scale(1.05);
+}
+
+.gallery-card-content {
+  padding: 1.5rem;
+}
+
+.gallery-card-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+}
+
+.gallery-card-content p {
+  color: #666;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.gallery-card-count {
+  font-size: 0.85rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.gallery-caption {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: #fff;
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gallery-item:hover .gallery-caption {
+  opacity: 1;
+}
+
+@media (min-width: 600px) {
+  .galleries-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .galleries-list {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

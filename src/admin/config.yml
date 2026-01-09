@@ -1,0 +1,73 @@
+backend:
+  name: github
+  repo: mcarm/y-eleventy-site
+  branch: main
+
+local_backend: true
+
+media_folder: "src/uploads"
+public_folder: "/uploads"
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: "journal"
+    label: "Journal Posts"
+    folder: "src/journal"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "journal/{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
+      - label: "Tags"
+        name: "postTags"
+        widget: "list"
+        allow_add: true
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "galleries"
+    label: "Galleries"
+    folder: "src/galleries"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Gallery Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Cover Image", name: "coverImage", widget: "image", required: false }
+      - { label: "Order", name: "order", widget: "number", default: 0, hint: "Lower numbers appear first" }
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        fields:
+          - { label: "Image", name: "src", widget: "image" }
+          - { label: "Alt Text", name: "alt", widget: "string", required: false }
+          - { label: "Caption", name: "caption", widget: "string", required: false }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "About"
+        name: "about"
+        file: "src/_data/about.json"
+        fields:
+          - { label: "Bio", name: "bio", widget: "markdown" }
+          - { label: "Profile Image", name: "profileImage", widget: "image", required: false }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "General Settings"
+        name: "site"
+        file: "src/_data/site.json"
+        fields:
+          - { label: "Site Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Author Name", name: "author", widget: "string" }
+          - { label: "Email", name: "email", widget: "string", required: false }

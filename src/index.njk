@@ -5,12 +5,42 @@ bodyClass: home
 
 <section class="hero hero-slideshow">
   <div class="hero-slides">
-    <div class="hero-slide active" style="background-image: url('/img/hero-1.png')"></div>
-    <div class="hero-slide" style="background-image: url('/img/hero-2.png')"></div>
-    <div class="hero-slide" style="background-image: url('/img/hero-3.png')"></div>
-    <div class="hero-slide" style="background-image: url('/img/hero-4.png')"></div>
-    <div class="hero-slide" style="background-image: url('/img/hero-5.png')"></div>
-    <div class="hero-slide" style="background-image: url('/img/hero-6.png')"></div>
+    <div class="hero-slide active">
+      <picture>
+        <source type="image/webp" srcset="/img/optimized/hero-1-800w.webp 800w, /img/optimized/hero-1-1200w.webp 1200w, /img/optimized/hero-1-1920w.webp 1920w" sizes="100vw">
+        <img src="/img/optimized/hero-1-1920w.jpeg" alt="Hero image 1" loading="eager" decoding="async" fetchpriority="high">
+      </picture>
+    </div>
+    <div class="hero-slide">
+      <picture>
+        <source type="image/webp" srcset="/img/optimized/hero-2-800w.webp 800w, /img/optimized/hero-2-1200w.webp 1200w, /img/optimized/hero-2-1920w.webp 1920w" sizes="100vw">
+        <img src="/img/optimized/hero-2-1920w.jpeg" alt="Hero image 2" loading="lazy" decoding="async">
+      </picture>
+    </div>
+    <div class="hero-slide">
+      <picture>
+        <source type="image/webp" srcset="/img/optimized/hero-3-800w.webp 800w, /img/optimized/hero-3-1200w.webp 1200w, /img/optimized/hero-3-1920w.webp 1920w" sizes="100vw">
+        <img src="/img/optimized/hero-3-1920w.jpeg" alt="Hero image 3" loading="lazy" decoding="async">
+      </picture>
+    </div>
+    <div class="hero-slide">
+      <picture>
+        <source type="image/webp" srcset="/img/optimized/hero-4-800w.webp 800w, /img/optimized/hero-4-1200w.webp 1200w, /img/optimized/hero-4-1920w.webp 1920w" sizes="100vw">
+        <img src="/img/optimized/hero-4-1920w.jpeg" alt="Hero image 4" loading="lazy" decoding="async">
+      </picture>
+    </div>
+    <div class="hero-slide">
+      <picture>
+        <source type="image/webp" srcset="/img/optimized/hero-5-800w.webp 800w, /img/optimized/hero-5-1200w.webp 1200w, /img/optimized/hero-5-1920w.webp 1920w" sizes="100vw">
+        <img src="/img/optimized/hero-5-1920w.jpeg" alt="Hero image 5" loading="lazy" decoding="async">
+      </picture>
+    </div>
+    <div class="hero-slide">
+      <picture>
+        <source type="image/webp" srcset="/img/optimized/hero-6-800w.webp 800w, /img/optimized/hero-6-1200w.webp 1200w, /img/optimized/hero-6-1920w.webp 1920w" sizes="100vw">
+        <img src="/img/optimized/hero-6-1920w.jpeg" alt="Hero image 6" loading="lazy" decoding="async">
+      </picture>
+    </div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -77,38 +107,68 @@ bodyClass: home
   <div class="container">
     <h2>Gallery</h2>
     <div class="gallery-grid">
-      <a href="/img/gallery/DSCF3710.png" class="gallery-item" data-lightbox="gallery">
-        <img src="/img/gallery/DSCF3710.png" alt="Gallery image 1" loading="lazy">
+      <a href="/img/optimized/gallery/DSCF3710-1200w.jpeg" class="gallery-item" data-lightbox="gallery">
+        <picture>
+          <source type="image/webp" srcset="/img/optimized/gallery/DSCF3710-400w.webp 400w, /img/optimized/gallery/DSCF3710-800w.webp 800w" sizes="(max-width: 600px) 50vw, 33vw">
+          <img src="/img/optimized/gallery/DSCF3710-800w.jpeg" alt="Gallery image 1" loading="lazy" decoding="async">
+        </picture>
       </a>
-      <a href="/img/gallery/IMG_20180321_194221.png" class="gallery-item" data-lightbox="gallery">
-        <img src="/img/gallery/IMG_20180321_194221.png" alt="Gallery image 2" loading="lazy">
+      <a href="/img/optimized/gallery/IMG_20180321_194221-1200w.jpeg" class="gallery-item" data-lightbox="gallery">
+        <picture>
+          <source type="image/webp" srcset="/img/optimized/gallery/IMG_20180321_194221-400w.webp 400w, /img/optimized/gallery/IMG_20180321_194221-800w.webp 800w" sizes="(max-width: 600px) 50vw, 33vw">
+          <img src="/img/optimized/gallery/IMG_20180321_194221-800w.jpeg" alt="Gallery image 2" loading="lazy" decoding="async">
+        </picture>
       </a>
-      <a href="/img/gallery/IMG_2193.png" class="gallery-item" data-lightbox="gallery">
-        <img src="/img/gallery/IMG_2193.png" alt="Gallery image 3" loading="lazy">
+      <a href="/img/optimized/gallery/IMG_2193-1200w.jpeg" class="gallery-item" data-lightbox="gallery">
+        <picture>
+          <source type="image/webp" srcset="/img/optimized/gallery/IMG_2193-400w.webp 400w, /img/optimized/gallery/IMG_2193-800w.webp 800w" sizes="(max-width: 600px) 50vw, 33vw">
+          <img src="/img/optimized/gallery/IMG_2193-800w.jpeg" alt="Gallery image 3" loading="lazy" decoding="async">
+        </picture>
       </a>
-      <a href="/img/gallery/IMG_8192.png" class="gallery-item" data-lightbox="gallery">
-        <img src="/img/gallery/IMG_8192.png" alt="Gallery image 4" loading="lazy">
+      <a href="/img/optimized/gallery/IMG_8192-1200w.jpeg" class="gallery-item" data-lightbox="gallery">
+        <picture>
+          <source type="image/webp" srcset="/img/optimized/gallery/IMG_8192-400w.webp 400w, /img/optimized/gallery/IMG_8192-800w.webp 800w" sizes="(max-width: 600px) 50vw, 33vw">
+          <img src="/img/optimized/gallery/IMG_8192-800w.jpeg" alt="Gallery image 4" loading="lazy" decoding="async">
+        </picture>
       </a>
-      <a href="/img/gallery/IMG_8242.png" class="gallery-item" data-lightbox="gallery">
-        <img src="/img/gallery/IMG_8242.png" alt="Gallery image 5" loading="lazy">
+      <a href="/img/optimized/gallery/IMG_8242-1200w.jpeg" class="gallery-item" data-lightbox="gallery">
+        <picture>
+          <source type="image/webp" srcset="/img/optimized/gallery/IMG_8242-400w.webp 400w, /img/optimized/gallery/IMG_8242-800w.webp 800w" sizes="(max-width: 600px) 50vw, 33vw">
+          <img src="/img/optimized/gallery/IMG_8242-800w.jpeg" alt="Gallery image 5" loading="lazy" decoding="async">
+        </picture>
       </a>
-      <a href="/img/gallery/IMG_8454.png" class="gallery-item" data-lightbox="gallery">
-        <img src="/img/gallery/IMG_8454.png" alt="Gallery image 6" loading="lazy">
+      <a href="/img/optimized/gallery/IMG_8454-1200w.jpeg" class="gallery-item" data-lightbox="gallery">
+        <picture>
+          <source type="image/webp" srcset="/img/optimized/gallery/IMG_8454-400w.webp 400w, /img/optimized/gallery/IMG_8454-800w.webp 800w" sizes="(max-width: 600px) 50vw, 33vw">
+          <img src="/img/optimized/gallery/IMG_8454-800w.jpeg" alt="Gallery image 6" loading="lazy" decoding="async">
+        </picture>
       </a>
-      <a href="/img/gallery/Marmstrong_20180620_152750.png" class="gallery-item" data-lightbox="gallery">
-        <img src="/img/gallery/Marmstrong_20180620_152750.png" alt="Gallery image 7" loading="lazy">
+      <a href="/img/optimized/gallery/Marmstrong_20180620_152750-1200w.jpeg" class="gallery-item" data-lightbox="gallery">
+        <picture>
+          <source type="image/webp" srcset="/img/optimized/gallery/Marmstrong_20180620_152750-400w.webp 400w, /img/optimized/gallery/Marmstrong_20180620_152750-800w.webp 800w" sizes="(max-width: 600px) 50vw, 33vw">
+          <img src="/img/optimized/gallery/Marmstrong_20180620_152750-800w.jpeg" alt="Gallery image 7" loading="lazy" decoding="async">
+        </picture>
       </a>
-      <a href="/img/gallery/PaintingMet-meRubensCIMG0033.png" class="gallery-item" data-lightbox="gallery">
-        <img src="/img/gallery/PaintingMet-meRubensCIMG0033.png" alt="Gallery image 8" loading="lazy">
+      <a href="/img/optimized/gallery/PaintingMet-meRubensCIMG0033-1200w.jpeg" class="gallery-item" data-lightbox="gallery">
+        <picture>
+          <source type="image/webp" srcset="/img/optimized/gallery/PaintingMet-meRubensCIMG0033-400w.webp 400w, /img/optimized/gallery/PaintingMet-meRubensCIMG0033-800w.webp 800w" sizes="(max-width: 600px) 50vw, 33vw">
+          <img src="/img/optimized/gallery/PaintingMet-meRubensCIMG0033-800w.jpeg" alt="Gallery image 8" loading="lazy" decoding="async">
+        </picture>
       </a>
-      <a href="/img/gallery/granacifinal930.png" class="gallery-item" data-lightbox="gallery">
-        <img src="/img/gallery/granacifinal930.png" alt="Gallery image 9" loading="lazy">
+      <a href="/img/optimized/gallery/granacifinal930-1200w.jpeg" class="gallery-item" data-lightbox="gallery">
+        <picture>
+          <source type="image/webp" srcset="/img/optimized/gallery/granacifinal930-400w.webp 400w, /img/optimized/gallery/granacifinal930-800w.webp 800w" sizes="(max-width: 600px) 50vw, 33vw">
+          <img src="/img/optimized/gallery/granacifinal930-800w.jpeg" alt="Gallery image 9" loading="lazy" decoding="async">
+        </picture>
       </a>
-      <a href="/img/gallery/headstudy-dancer.png" class="gallery-item" data-lightbox="gallery">
-        <img src="/img/gallery/headstudy-dancer.png" alt="Gallery image 10" loading="lazy">
+      <a href="/img/optimized/gallery/headstudy-dancer-1200w.jpeg" class="gallery-item" data-lightbox="gallery">
+        <picture>
+          <source type="image/webp" srcset="/img/optimized/gallery/headstudy-dancer-400w.webp 400w, /img/optimized/gallery/headstudy-dancer-800w.webp 800w" sizes="(max-width: 600px) 50vw, 33vw">
+          <img src="/img/optimized/gallery/headstudy-dancer-800w.jpeg" alt="Gallery image 10" loading="lazy" decoding="async">
+        </picture>
       </a>
     </div>
-    <a href="/gallery/" class="btn btn-secondary">View Full Gallery</a>
+    <a href="/galleries/" class="btn btn-secondary">View All Galleries</a>
   </div>
 </section>
 

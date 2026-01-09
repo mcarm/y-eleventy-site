@@ -4,9 +4,18 @@
   "description": "Minimalist portfolio site with journal, built with Eleventy",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "optimize": "node scripts/optimize-images.js",
+    "build:prod": "npm run build && npm run optimize",
+    "cms": "npx decap-server",
+    "dev": "npx concurrently \"npm run start\" \"npm run cms\""
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "concurrently": "^8.2.2",
+    "decap-server": "^3.0.0"
+  },
+  "dependencies": {
+    "@11ty/eleventy-img": "^6.0.4"
   }
 }

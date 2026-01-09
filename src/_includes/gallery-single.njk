@@ -1,0 +1,31 @@
+---
+layout: base.njk
+---
+
+<section class="section gallery-page">
+  <div class="container">
+    <a href="/galleries/" class="back-link">&larr; Back to Galleries</a>
+    
+    <h1>{{ title }}</h1>
+    {% if description %}
+    <p class="gallery-intro">{{ description }}</p>
+    {% endif %}
+    
+    <div class="gallery-grid gallery-grid-full">
+      {% for image in images %}
+      {% set imgName = image.src | replace("/img/gallery/", "") | replace(".png", "") | replace(".jpg", "") | replace(".jpeg", "") %}
+      <a href="/img/optimized/gallery/{{ imgName }}-1200w.jpeg" class="gallery-item" data-lightbox="gallery">
+        <picture>
+          <source type="image/webp" srcset="/img/optimized/gallery/{{ imgName }}-400w.webp 400w, /img/optimized/gallery/{{ imgName }}-800w.webp 800w" sizes="(max-width: 600px) 50vw, 33vw">
+          <img src="/img/optimized/gallery/{{ imgName }}-800w.jpeg" alt="{{ image.alt or title }}" loading="lazy" decoding="async">
+        </picture>
+        {% if image.caption %}
+        <span class="gallery-caption">{{ image.caption }}</span>
+        {% endif %}
+      </a>
+      {% endfor %}
+    </div>
+    
+    <a href="/galleries/" class="back-link">&larr; Back to Galleries</a>
+  </div>
+</section>
