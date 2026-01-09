@@ -1,5 +1,5 @@
 ---
-title: Photography
+title: Gallery 2
 description: Travel and documentary photography.
 order: 2
 images:

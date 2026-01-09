@@ -1,5 +1,5 @@
 ---
-title: Artwork
+title: Gallery 1
 description: A collection of paintings and drawings.
 order: 1
 images:
