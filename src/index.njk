@@ -176,8 +176,8 @@ bodyClass: home
   <div class="container">
     <h2>About</h2>
     <div class="about-content">
-     <p>Some years ago I had a bluehost website up, but the expense and time made me abandon it, as a thought experiment I threw this up on GIT using eleventy and converted some of the old content vibe coding with Windsurf. Times sure have changed!</p>
-      <p>I am technologist and creator in digital and traditional mediums. This site is a laboratory for my experiments</p>
+      {% if about.profileImage %}<img src="{{ about.profileImage }}" alt="Profile" class="about-image">{% endif %}
+      {{ about.bio | safe | nl2br }}
     </div>
     <a href="#" class="back-to-top">&uarr; Back to Top</a>
   </div>

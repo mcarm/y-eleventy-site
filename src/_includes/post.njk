@@ -22,6 +22,7 @@
           <h1 class="post-title">{{ title }}</h1>
           <div class="post-meta">
             <time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
+            <span class="reading-time">{{ content | readingTime }}</span>
             {%- if postTags %}
             <span class="blog-tags">
               {%- for postTag in postTags %}
@@ -30,12 +31,32 @@
             </span>
             {%- endif %}
           </div>
+          {%- if featuredImage %}
+          <figure class="post-featured-image">
+            {% postImage featuredImage, title %}
+          </figure>
+          {%- endif %}
         </header>
         
         <div class="post-content">
           {{ content | safe }}
         </div>
         
+        {% set related = collections.journal | relatedPosts(page, 3) %}
+        {% if related.length > 0 %}
+        <aside class="related-posts">
+          <h3>Related Posts</h3>
+          <ul>
+            {% for post in related %}
+            <li>
+              <a href="{{ post.url }}">{{ post.data.title }}</a>
+              <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+            </li>
+            {% endfor %}
+          </ul>
+        </aside>
+        {% endif %}
+
         <footer class="post-footer">
           <a href="/journal/" class="back-link">&larr; Back to Journal</a>
         </footer>

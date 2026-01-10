@@ -6,7 +6,7 @@
     "start": "eleventy --serve",
     "build": "eleventy",
     "optimize": "node scripts/optimize-images.js",
-    "build:prod": "npm run build && npm run optimize",
+    "build:prod": "NODE_ENV=production npm run build && npm run optimize",
     "cms": "npx decap-server",
     "dev": "npx concurrently \"npm run start\" \"npm run cms\""
   },

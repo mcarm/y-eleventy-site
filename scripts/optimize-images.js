@@ -84,6 +84,51 @@ async function optimizeGalleryImages() {
   }
 }
 
+async function optimizeUploadedImages() {
+  console.log("\nOptimizing uploaded images (blog posts)...");
+  
+  const uploadsDir = "src/uploads";
+  
+  if (!fs.existsSync(uploadsDir)) {
+    console.log("Uploads directory not found, skipping...");
+    return;
+  }
+  
+  const files = fs.readdirSync(uploadsDir).filter(f => 
+    /\.(png|jpg|jpeg|webp|gif)$/i.test(f)
+  );
+  
+  if (files.length === 0) {
+    console.log("No images found in uploads, skipping...");
+    return;
+  }
+  
+  for (const file of files) {
+    const src = path.join(uploadsDir, file);
+    console.log(`Processing ${src}...`);
+    
+    await Image(src, {
+      widths: [400, 800, 1200],
+      formats: ["webp", "jpeg"],
+      outputDir: "./_site/uploads/optimized/",
+      urlPath: "/uploads/optimized/",
+      filenameFormat: function (id, src, width, format) {
+        const name = path.basename(src, path.extname(src));
+        return `${name}-${width}w.${format}`;
+      },
+      sharpJpegOptions: {
+        quality: 80,
+        progressive: true,
+      },
+      sharpWebpOptions: {
+        quality: 80,
+      },
+    });
+    
+    console.log(`  ✓ ${file} optimized`);
+  }
+}
+
 async function main() {
   console.log("=== Image Optimization Script ===\n");
   
@@ -94,6 +139,7 @@ async function main() {
   
   await optimizeHeroImages();
   await optimizeGalleryImages();
+  await optimizeUploadedImages();
   
   console.log("\n✓ All images optimized!");
 }

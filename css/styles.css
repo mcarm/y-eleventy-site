@@ -1121,12 +1121,34 @@ p {
   text-align: center;
 }
 
+.post-featured-image {
+  display: block;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.post-featured-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
 .post-title {
   font-size: 2.5rem;
   font-weight: 500;
   line-height: 1.2;
   margin-bottom: 1rem;
   color: #1a1a1a;
+}
+
+.reading-time {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.reading-time::before {
+  content: "•";
+  margin: 0 0.5rem;
 }
 
 .post-meta {
@@ -1214,6 +1236,46 @@ p {
 
 .post-content a:hover {
   color: #6b3410;
+}
+
+.related-posts {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.related-posts h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.related-posts ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.related-posts li {
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.related-posts a {
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.related-posts a:hover {
+  color: #666;
+}
+
+.related-posts time {
+  font-size: 0.85rem;
+  color: #888;
 }
 
 .post-footer {
