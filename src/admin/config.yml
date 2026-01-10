@@ -2,6 +2,7 @@ backend:
   name: github
   repo: mcarm/y-eleventy-site
   branch: main
+  base_url: https://sveltia-cms-auth.pages.dev
 
 local_backend: true
 
