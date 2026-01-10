@@ -174,14 +174,14 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("relatedPosts", (collection, currentPost, limit = 3) => {
-    if (!collection || !currentPost) return [];
+    if (!collection || !currentPost || !currentPost.data) return [];
     const currentTags = currentPost.data.postTags || [];
     if (currentTags.length === 0) return [];
     
     return collection
-      .filter(post => post.url !== currentPost.url)
+      .filter(post => post && post.url && post.url !== currentPost.url)
       .map(post => {
-        const postTags = post.data.postTags || [];
+        const postTags = (post.data && post.data.postTags) || [];
         const sharedTags = currentTags.filter(tag => postTags.includes(tag));
         return { post, score: sharedTags.length };
       })
