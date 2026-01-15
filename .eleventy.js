@@ -209,9 +209,21 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("gallery", (collectionApi) => {
-    return collectionApi.getFilteredByGlob("src/galleries/*.md").sort((a, b) => {
-      return (a.data.order || 0) - (b.data.order || 0);
-    });
+    const isProduction = process.env.NODE_ENV === "production";
+    return collectionApi.getFilteredByGlob("src/galleries/*.md")
+      .filter(gallery => !isProduction || !gallery.data.draft)
+      .sort((a, b) => {
+        return (a.data.order || 0) - (b.data.order || 0);
+      });
+  });
+
+  eleventyConfig.addCollection("work", (collectionApi) => {
+    const isProduction = process.env.NODE_ENV === "production";
+    return collectionApi.getFilteredByGlob("src/work/*.md")
+      .filter(project => !isProduction || !project.data.draft)
+      .sort((a, b) => {
+        return (a.data.order || 0) - (b.data.order || 0);
+      });
   });
 
   return {

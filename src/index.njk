@@ -63,45 +63,31 @@ bodyClass: home
   </div>
 </section>
 
-{# WORK SECTION - Uncomment to enable
 <section id="work" class="section work">
   <div class="container">
     <h2>Selected Work</h2>
     <div class="project-grid">
+      {%- for project in collections.work %}
       <article class="project-card">
         <div class="project-image">
-          <div class="project-placeholder" aria-hidden="true">01</div>
+          {%- if project.data.featuredImage %}
+          <img src="{{ project.data.featuredImage }}" alt="{{ project.data.title }}" loading="lazy">
+          {%- else %}
+          <div class="project-placeholder" aria-hidden="true">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</div>
+          {%- endif %}
         </div>
         <div class="project-overlay">
-          <h3>Nomad Coffee</h3>
-          <p>Brand identity and packaging design for a specialty coffee roaster expanding to new markets.</p>
-          <a href="#" class="project-link">View Project</a>
+          <h3>{{ project.data.title }}</h3>
+          <p>{{ project.data.description }}</p>
+          {%- if project.data.projectLink %}
+          <a href="{{ project.data.projectLink }}" class="project-link" target="_blank" rel="noopener">View Project</a>
+          {%- endif %}
         </div>
       </article>
-      <article class="project-card">
-        <div class="project-image">
-          <div class="project-placeholder" aria-hidden="true">02</div>
-        </div>
-        <div class="project-overlay">
-          <h3>Horizon App</h3>
-          <p>Mobile UX overhaul for a travel startup, improving booking completion rates by 40%.</p>
-          <a href="#" class="project-link">View Project</a>
-        </div>
-      </article>
-      <article class="project-card">
-        <div class="project-image">
-          <div class="project-placeholder" aria-hidden="true">03</div>
-        </div>
-        <div class="project-overlay">
-          <h3>Design System</h3>
-          <p>A component library and documentation site built for developers who value clarity.</p>
-          <a href="#" class="project-link">View Project</a>
-        </div>
-      </article>
+      {%- endfor %}
     </div>
   </div>
 </section>
-#}
 
 <section id="gallery" class="section gallery-teaser">
   <div class="container">
@@ -208,21 +194,20 @@ bodyClass: home
   </div>
 </section>
 
-{# CONTACT SECTION - Uncomment to enable
 <section id="contact" class="section contact">
   <div class="container">
     <h2>Get in Touch</h2>
     <p>Have a project in mind or just want to say hello? I'd love to hear from you.</p>
     
     <div class="contact-info">
-      <p><strong>Email:</strong> <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
       <p class="social-links">
-        <a href="{{ site.github }}" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="{{ site.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        {% if site.github %}<a href="{{ site.github }}" target="_blank" rel="noopener noreferrer">GitHub</a>{% endif %}
+        {% if site.linkedin %}<a href="{{ site.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>{% endif %}
       </p>
     </div>
 
-    <form class="contact-form" action="mailto:{{ site.email }}" method="POST" enctype="text/plain">
+    <form class="contact-form" action="https://formspree.io/f/xgoovnzv" method="POST">
+      <input type="hidden" name="_subject" value="New contact from portfolio site">
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required autocomplete="name">
@@ -239,4 +224,3 @@ bodyClass: home
     </form>
   </div>
 </section>
-#}
