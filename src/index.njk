@@ -194,6 +194,53 @@ bodyClass: home
   </div>
 </section>
 
+{# RESOURCES SECTION - Uncomment to enable
+<section id="resources" class="section resources">
+  <div class="container">
+    <h2>Resources</h2>
+    
+    <div class="resources-grid">
+      <div class="resources-category">
+        <h3>Links</h3>
+        <ul class="resources-list">
+          {%- for link in collections.links %}
+          <li>
+            <a href="{{ link.data.url }}" target="_blank" rel="noopener">{{ link.data.title }}</a>
+            {%- if link.data.description %}
+            <p>{{ link.data.description }}</p>
+            {%- endif %}
+          </li>
+          {%- endfor %}
+        </ul>
+      </div>
+      
+      <div class="resources-category">
+        <h3>Books</h3>
+        <ul class="resources-list books-list">
+          {%- for book in collections.books %}
+          <li>
+            {%- if book.data.coverImage %}
+            <img src="{{ book.data.coverImage }}" alt="{{ book.data.title }}" class="book-cover">
+            {%- endif %}
+            <div class="book-info">
+              <strong>{{ book.data.title }}</strong>
+              <span class="book-author">by {{ book.data.author }}</span>
+              {%- if book.data.description %}
+              <p>{{ book.data.description }}</p>
+              {%- endif %}
+              {%- if book.data.link %}
+              <a href="{{ book.data.link }}" target="_blank" rel="noopener">Learn more</a>
+              {%- endif %}
+            </div>
+          </li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+#}
+
 <section id="contact" class="section contact">
   <div class="container">
     <h2>Get in Touch</h2>

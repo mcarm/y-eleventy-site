@@ -65,6 +65,32 @@ collections:
       - { label: "Order", name: "order", widget: "number", default: 0, hint: "Lower numbers appear first" }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
+  - name: "links"
+    label: "Resources: Links"
+    folder: "src/resources/links"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "URL", name: "url", widget: "string" }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Category", name: "category", widget: "string", required: false, hint: "e.g. Design, Development, Inspiration" }
+      - { label: "Order", name: "order", widget: "number", default: 0, hint: "Lower numbers appear first" }
+
+  - name: "books"
+    label: "Resources: Books"
+    folder: "src/resources/books"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Cover Image", name: "coverImage", widget: "image", required: false }
+      - { label: "Link", name: "link", widget: "string", required: false, hint: "Link to purchase or learn more" }
+      - { label: "Category", name: "category", widget: "string", required: false, hint: "e.g. Art, Business, Philosophy" }
+      - { label: "Order", name: "order", widget: "number", default: 0, hint: "Lower numbers appear first" }
+
   - name: "pages"
     label: "Pages"
     files:

@@ -226,6 +226,20 @@ module.exports = function (eleventyConfig) {
       });
   });
 
+  eleventyConfig.addCollection("links", (collectionApi) => {
+    return collectionApi.getFilteredByGlob("src/resources/links/*.md")
+      .sort((a, b) => {
+        return (a.data.order || 0) - (b.data.order || 0);
+      });
+  });
+
+  eleventyConfig.addCollection("books", (collectionApi) => {
+    return collectionApi.getFilteredByGlob("src/resources/books/*.md")
+      .sort((a, b) => {
+        return (a.data.order || 0) - (b.data.order || 0);
+      });
+  });
+
   return {
     dir: {
       input: "src",
