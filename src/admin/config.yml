@@ -52,7 +52,7 @@ collections:
           - { label: "Caption", name: "caption", widget: "string", required: false }
 
   - name: "work"
-    label: "Work Projects"
+    label: "Projects"
     folder: "src/work"
     create: true
     slug: "{{slug}}"
