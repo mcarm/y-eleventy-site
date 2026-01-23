@@ -1,6 +1,17 @@
-node_modules/
-_site/
+# Eleventy build artifacts (inside my_website/)
+my_website/node_modules/
+my_website/_site/
+my_website/.venv/
+
+# General
 .DS_Store
 *.log
 notes.txt
-.venv/
+
+# Sub-projects (each has its own git repo)
+Goose/
+
+# Loose files not part of the website
+cv_malcolm_armstrong_2026.md
+cv_malcolm_armstrong_2026.pdf
+resume_md_jan2026.md
