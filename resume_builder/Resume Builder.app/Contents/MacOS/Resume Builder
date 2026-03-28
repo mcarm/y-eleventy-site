@@ -1,0 +1,7 @@
+#!/bin/bash
+cd "/Volumes/ImacExternal/docs/windsurf_projects/WindSurf_FrontEnd/resume_builder"
+
+osascript -e 'tell application "Terminal"
+    do script "cd /Volumes/ImacExternal/docs/windsurf_projects/WindSurf_FrontEnd/resume_builder && echo \"🚀 Starting Resume Builder...\" && echo \"\" && npm run dev; echo \"\" && echo \"Server stopped. Press any key to close...\" && read -n 1 -s && exit"
+    activate
+end tell'
