@@ -344,14 +344,16 @@ const server = http.createServer((req, res) => {
       res.end(JSON.stringify({ success: false, error: 'Already running' }));
       return;
     }
-    eleventyProcess = spawn('npx', ['@11ty/eleventy', '--serve'], {
+    const eleventyPath = require.resolve('@11ty/eleventy/cmd');
+    eleventyProcess = spawn(process.execPath, [eleventyPath, '--serve'], {
       cwd: __dirname,
       stdio: 'ignore',
       detached: false
     });
     eleventyProcess.on('close', () => { eleventyProcess = null; });
     
-    decapProcess = spawn('npx', ['decap-server'], {
+    const decapPath = require.resolve('decap-server');
+    decapProcess = spawn(process.execPath, [decapPath], {
       cwd: __dirname,
       stdio: 'ignore',
       detached: false
@@ -378,8 +380,9 @@ const server = http.createServer((req, res) => {
   }
   
   if (url.pathname === '/api/publish' && req.method === 'POST') {
-    exec('npx @11ty/eleventy && git add -A && git commit -m "build: update site" && git push origin main', 
-      { cwd: path.join(__dirname, '..') },
+    const eleventyPath = require.resolve('@11ty/eleventy/cmd');
+    exec(`node "${eleventyPath}" && git add -A && git commit -m "build: update site" && git push origin main`, 
+      { cwd: __dirname },
       (error, stdout, stderr) => {
         if (error) {
           res.end(JSON.stringify({ success: false, error: stderr || error.message }));
