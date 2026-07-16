@@ -7,14 +7,10 @@
     "build": "eleventy",
     "optimize": "node scripts/optimize-images.js",
     "build:prod": "NODE_ENV=production npm run build && npm run optimize",
-    "cms": "npx decap-server",
-    "dev": "npx concurrently \"npm run start\" \"npm run cms\"",
     "panel": "node dev-panel.js"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "concurrently": "^8.2.2",
-    "decap-server": "^3.0.0"
+    "@11ty/eleventy": "^2.0.1"
   },
   "dependencies": {
     "@11ty/eleventy-img": "^6.0.4"
