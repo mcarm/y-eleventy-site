@@ -1,7 +1,8 @@
 ---
 title: Art and Poetry
 date: 2026-01-04
-excerpt: Exploring the deep connection between poetry and visual art, and what modern artists might be missing.
+draft: false
+excerpt: Exploring the deep connection between poetry and visual art, and what modern artists might be missing. reposted from the archives
 postTags:
   - creativity
   - art history
@@ -21,4 +22,4 @@ There is certainly some neurological evidence to point in this direction. The bo
 
 Prior to the 1960s, it was common for schoolchildren to be required to learn a long poem. Almost any educated person over 65 can recite, at length, a "classic."
 
-I have a strong hunch that memorizing long meaningful poems (not just gibberish or shallow rock music lyrics) has a strong organizing effect on the brain and might enhance creative powers in other disciplines.
+I have a strong hunch that memorizing long meaningful poems (not just gibberish or shallow pop  lyrics) has a strong organizing effect on the brain and might enhance creative powers in other disciplines.
