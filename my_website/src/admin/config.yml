@@ -3,7 +3,7 @@ backend:
   repo: mcarm/y-eleventy-site
   branch: main
 
-media_folder: "src/uploads"
+media_folder: "my_website/src/uploads"
 public_folder: "/uploads"
 
 slug:
@@ -14,7 +14,7 @@ slug:
 collections:
   - name: "journal"
     label: "Journal Posts"
-    folder: "src/journal"
+    folder: "my_website/src/journal"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -32,7 +32,7 @@ collections:
 
   - name: "galleries"
     label: "Galleries"
-    folder: "src/galleries"
+    folder: "my_website/src/galleries"
     create: true
     slug: "{{slug}}"
     fields:
@@ -51,7 +51,7 @@ collections:
 
   - name: "work"
     label: "Projects"
-    folder: "src/work"
+    folder: "my_website/src/work"
     create: true
     slug: "{{slug}}"
     fields:
@@ -65,7 +65,7 @@ collections:
 
   - name: "links"
     label: "Resources: Links"
-    folder: "src/resources/links"
+    folder: "my_website/src/resources/links"
     create: true
     slug: "{{slug}}"
     fields:
@@ -77,7 +77,7 @@ collections:
 
   - name: "books"
     label: "Resources: Books"
-    folder: "src/resources/books"
+    folder: "my_website/src/resources/books"
     create: true
     slug: "{{slug}}"
     fields:
@@ -94,7 +94,7 @@ collections:
     files:
       - label: "About"
         name: "about"
-        file: "src/_data/about.json"
+        file: "my_website/src/_data/about.json"
         fields:
           - { label: "Bio", name: "bio", widget: "markdown" }
           - { label: "Profile Image", name: "profileImage", widget: "image", required: false }
@@ -104,7 +104,7 @@ collections:
     files:
       - label: "General Settings"
         name: "site"
-        file: "src/_data/site.json"
+        file: "my_website/src/_data/site.json"
         fields:
           - { label: "Site Title", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "text" }
