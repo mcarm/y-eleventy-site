@@ -8,4 +8,4 @@ postTags:
   - drawing
 ---
 
-Marine Life Hall @ the American Museum of Natural History  ![](/uploads/AMNHJUly3.jpg "AMNH Polar Bear")
+Marine Life Hall @ the American Museum of Natural History
