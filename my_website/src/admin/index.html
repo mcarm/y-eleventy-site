@@ -4,9 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com 'sha384-1lhFs8+tXG4MV80L+/4enmKGio3aT9qrPGfM8/OTuo7Td7z+PW/8eOZBUXgXwRRc'; style-src 'self' 'unsafe-inline' https://unpkg.com; connect-src 'self' https://api.github.com https://github.com; img-src 'self' data: blob: https:; frame-ancestors 'none'; object-src 'none'; base-uri 'self';">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Content Manager</title>
 </head>
 <body>
-  <script src="https://unpkg.com/@sveltia/cms@latest/dist/sveltia-cms.js"></script>
+  <script src="https://unpkg.com/@sveltia/cms@0.252.0/dist/sveltia-cms.js" integrity="sha384-1lhFs8+tXG4MV80L+/4enmKGio3aT9qrPGfM8/OTuo7Td7z+PW/8eOZBUXgXwRRc" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,5 +1,22 @@
 const Image = require("@11ty/eleventy-img");
 const path = require("path");
+const fs = require("fs");
+
+function escapeHtml(str) {
+  if (str == null) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function isPathInside(base, target) {
+  const resolvedBase = path.resolve(base);
+  const resolvedTarget = path.resolve(target);
+  return resolvedTarget === resolvedBase || resolvedTarget.startsWith(resolvedBase + path.sep);
+}
 
 async function optimizeImage(src, widths = [400, 800, 1200]) {
   const inputPath = src.startsWith("/") ? `src${src}` : src;
@@ -78,8 +95,26 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addNunjucksAsyncShortcode("postImage", async function(src, alt = "") {
     if (!src) return "";
-    const inputPath = src.startsWith("/") ? `src${src}` : src;
-    
+
+    // Reject path traversal and non-upload/non-img paths
+    const normalized = path.normalize(src).replace(/\\/g, "/");
+    if (normalized.includes("..") || !(normalized.startsWith("/uploads/") || normalized.startsWith("/img/"))) {
+      console.warn(`Rejected unsafe image path: ${src}`);
+      return "";
+    }
+
+    const inputPath = `src${normalized}`;
+    const resolvedInput = path.resolve(inputPath);
+    if (!isPathInside(path.resolve("src"), resolvedInput)) {
+      console.warn(`Rejected image path outside src: ${src}`);
+      return "";
+    }
+
+    if (!fs.existsSync(resolvedInput)) {
+      console.warn(`Image not found: ${inputPath}`);
+      return "";
+    }
+
     try {
       const metadata = await Image(inputPath, {
         widths: [400, 800, 1200],
@@ -93,7 +128,7 @@ module.exports = function (eleventyConfig) {
         sharpJpegOptions: { quality: 80, progressive: true },
         sharpWebpOptions: { quality: 80 },
       });
-      
+
       return Image.generateHTML(metadata, {
         alt,
         sizes: "(max-width: 800px) 100vw, 800px",
@@ -102,19 +137,23 @@ module.exports = function (eleventyConfig) {
       });
     } catch (e) {
       console.warn(`Could not optimize image: ${src}`, e.message);
-      return `<img src="${src}" alt="${alt}" loading="lazy">`;
+      return `<img src="${escapeHtml(normalized)}" alt="${escapeHtml(alt)}" loading="lazy">`;
     }
   });
 
   eleventyConfig.addFilter("optimizedUpload", (src) => {
     if (!src) return "";
-    const name = src.split("/").pop().split(".")[0];
+    const normalized = path.normalize(src).replace(/\\/g, "/");
+    if (normalized.includes("..") || !normalized.startsWith("/uploads/")) return "";
+    const name = path.basename(normalized, path.extname(normalized));
     return `/uploads/optimized/${name}-800w.jpeg`;
   });
 
   eleventyConfig.addFilter("optimizedUploadSrcset", (src) => {
     if (!src) return "";
-    const name = src.split("/").pop().split(".")[0];
+    const normalized = path.normalize(src).replace(/\\/g, "/");
+    if (normalized.includes("..") || !normalized.startsWith("/uploads/")) return "";
+    const name = path.basename(normalized, path.extname(normalized));
     return `/uploads/optimized/${name}-400w.webp 400w, /uploads/optimized/${name}-800w.webp 800w, /uploads/optimized/${name}-1200w.webp 1200w`;
   });
 
@@ -250,5 +289,7 @@ module.exports = function (eleventyConfig) {
     },
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
+    // Disable raw HTML in Markdown to prevent stored XSS from CMS content
+    html: false,
   };
 };

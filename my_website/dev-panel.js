@@ -2,11 +2,28 @@ const http = require('http');
 const { exec, spawn } = require('child_process');
 const path = require('path');
 const fs = require('fs');
+const crypto = require('crypto');
 
 const PORT = 3333;
 let eleventyProcess = null;
 let decapProcess = null;
 let mp3DupeProcess = null;
+
+// Generate a random CSRF token on startup. This is local-dev only, but prevents
+// drive-by websites from POSTing to localhost:3333 and running commands.
+const CSRF_TOKEN = process.env.DEV_PANEL_TOKEN || crypto.randomBytes(32).toString('hex');
+console.log(`Dev Panel CSRF token: ${CSRF_TOKEN}`);
+console.log('Set DEV_PANEL_TOKEN to reuse a stable token.\n');
+
+function validateToken(req, res) {
+  const token = req.headers['x-csrf-token'];
+  if (token !== CSRF_TOKEN) {
+    res.statusCode = 403;
+    res.end(JSON.stringify({ success: false, error: 'Invalid or missing CSRF token' }));
+    return false;
+  }
+  return true;
+}
 
 const html = `<!DOCTYPE html>
 <html lang="en">
@@ -224,7 +241,7 @@ const html = `<!DOCTYPE html>
     async function startMp3Finder() {
       log('Starting MP3 Duplicate Finder...');
       try {
-        const res = await fetch('/api/mp3/start', { method: 'POST' });
+        const res = await fetch('/api/mp3/start', { method: 'POST', headers: { 'X-CSRF-Token': '${CSRF_TOKEN}' } });
         const data = await res.json();
         if (data.success) {
           log('MP3 Finder started!', 'success');
@@ -240,7 +257,7 @@ const html = `<!DOCTYPE html>
     async function stopMp3Finder() {
       log('Stopping MP3 Duplicate Finder...');
       try {
-        const res = await fetch('/api/mp3/stop', { method: 'POST' });
+        const res = await fetch('/api/mp3/stop', { method: 'POST', headers: { 'X-CSRF-Token': '${CSRF_TOKEN}' } });
         const data = await res.json();
         if (data.success) {
           log('MP3 Finder stopped', 'success');
@@ -258,7 +275,7 @@ const html = `<!DOCTYPE html>
     async function startServer() {
       log('Starting server...');
       try {
-        const res = await fetch('/api/start', { method: 'POST' });
+        const res = await fetch('/api/start', { method: 'POST', headers: { 'X-CSRF-Token': '${CSRF_TOKEN}' } });
         const data = await res.json();
         if (data.success) {
           log('Server started!', 'success');
@@ -274,7 +291,7 @@ const html = `<!DOCTYPE html>
     async function stopServer() {
       log('Stopping server...');
       try {
-        const res = await fetch('/api/stop', { method: 'POST' });
+        const res = await fetch('/api/stop', { method: 'POST', headers: { 'X-CSRF-Token': '${CSRF_TOKEN}' } });
         const data = await res.json();
         if (data.success) {
           log('Server stopped', 'success');
@@ -296,7 +313,7 @@ const html = `<!DOCTYPE html>
     async function closePanel() {
       log('Shutting down...');
       try {
-        await fetch('/api/shutdown', { method: 'POST' });
+        await fetch('/api/shutdown', { method: 'POST', headers: { 'X-CSRF-Token': '${CSRF_TOKEN}' } });
       } catch (e) {}
       document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;color:#fff;font-family:sans-serif"><p>Panel closed. You can close this tab.</p></div>';
     }
@@ -305,7 +322,7 @@ const html = `<!DOCTYPE html>
       if (!confirm('This will build and push to GitHub. Continue?')) return;
       log('Building site...');
       try {
-        const res = await fetch('/api/publish', { method: 'POST' });
+        const res = await fetch('/api/publish', { method: 'POST', headers: { 'X-CSRF-Token': '${CSRF_TOKEN}' } });
         const data = await res.json();
         if (data.success) {
           log('Published successfully!', 'success');
@@ -340,6 +357,7 @@ const server = http.createServer((req, res) => {
   }
   
   if (url.pathname === '/api/start' && req.method === 'POST') {
+    if (!validateToken(req, res)) return;
     if (eleventyProcess) {
       res.end(JSON.stringify({ success: false, error: 'Already running' }));
       return;
@@ -365,6 +383,7 @@ const server = http.createServer((req, res) => {
   }
   
   if (url.pathname === '/api/stop' && req.method === 'POST') {
+    if (!validateToken(req, res)) return;
     if (eleventyProcess) {
       eleventyProcess.kill();
       eleventyProcess = null;
@@ -380,6 +399,7 @@ const server = http.createServer((req, res) => {
   }
   
   if (url.pathname === '/api/publish' && req.method === 'POST') {
+    if (!validateToken(req, res)) return;
     const eleventyPath = require.resolve('@11ty/eleventy/cmd');
     exec(`node "${eleventyPath}" && git add -A && git commit -m "build: update site" && git push origin main`, 
       { cwd: __dirname },
@@ -395,6 +415,7 @@ const server = http.createServer((req, res) => {
   }
   
   if (url.pathname === '/api/mp3/start' && req.method === 'POST') {
+    if (!validateToken(req, res)) return;
     if (mp3DupeProcess) {
       res.end(JSON.stringify({ success: false, error: 'Already running' }));
       return;
@@ -411,6 +432,7 @@ const server = http.createServer((req, res) => {
   }
   
   if (url.pathname === '/api/mp3/stop' && req.method === 'POST') {
+    if (!validateToken(req, res)) return;
     if (mp3DupeProcess) {
       mp3DupeProcess.kill();
       mp3DupeProcess = null;
@@ -421,6 +443,7 @@ const server = http.createServer((req, res) => {
   }
   
   if (url.pathname === '/api/shutdown' && req.method === 'POST') {
+    if (!validateToken(req, res)) return;
     if (eleventyProcess) eleventyProcess.kill();
     if (decapProcess) decapProcess.kill();
     if (mp3DupeProcess) mp3DupeProcess.kill();
